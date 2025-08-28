@@ -1,0 +1,116 @@
+:root {
+    --page-bg: #eef2ff;
+    --card-bg: #ffffff;
+    --muted: #94a3b8;
+    --shadow: 0 28px 60px rgba(17, 24, 39, 0.15);
+    --radius: 22px;
+}
+
+html,
+body {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+            1200px 600px at 20% 90%,
+            #fde68a33 0,
+            transparent 60%
+        ),
+        radial-gradient(1000px 600px at 80% 10%, #86efac22 0, transparent 50%),
+        var(--page-bg);
+    font-family: sans-serif;
+}
+
+.card {
+    width: min(420px, 92vw);
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 18px 22px;
+    text-align: center;
+}
+
+.display {
+    height: 320px;
+    border-radius: calc(var(--radius) - 6px);
+    background: linear-gradient(135deg, #ffe072 0%, #d9ff6a 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -6px 24px rgba(0, 0, 0, 0.08);
+    display: grid;
+    place-items: center;
+    margin: 6px; /* để tạo viền trắng mỏng quanh gradient */
+}
+.value {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+/* Trạng thía màu khi + - Reset 0 */
+.count {
+    font-size: 48px;
+    margin: 8px 0;
+}
+.positive {
+    color: #16a34a;
+}
+.negative {
+    color: #dc2626;
+}
+.zero {
+    color: #6b7280;
+}
+
+/* Control nút bấm */
+.controls {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    padding: 18px 6px 4px;
+}
+.btn {
+    width: 66px;
+    height: 66px;
+    border-radius: 14px;
+    border: 1px solid #e5e9f0;
+    background: #f6f8fc;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 18px rgba(16, 24, 40, 0.06);
+    font-size: 22px;
+    font-weight: 700;
+    color: #657a99;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
+}
+.btn:hover {
+    transform: translateY(-1px);
+    background: #f1f5fb;
+}
+.btn:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.status {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+/* thêm màu theo trạng thái */
+.status.positive {
+    color: #16a34a;
+} /* dương */
+.status.negative {
+    color: #dc2626;
+} /* âm */
+.status.zero {
+    color: #6b7280;
+} /* bằng không */
